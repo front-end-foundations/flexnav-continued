@@ -133,7 +133,7 @@ Today we will be building a single page application - there is only one HTML pag
 
 This is a common design pattern in modern web development. These types of sites are often built using frontend libraries such as React, Angular or Vue. We will be using vanilla JavaScript.
 
-You should have you a better understanding of: 
+You should have you a better understanding of:
 
 - how browsers function internally
 - routing or how the browser determines what content to display based on the URL
@@ -224,7 +224,7 @@ Note:
 - the new [package-lock.json](https://docs.npmjs.com/files/package-lock.json)
 - the `.gitignore` file (added by me) declares that the contents of the node_modules folder should not be tracked by git
 
-Examine the contents of `node_modules`. Normally there is no need to touch this folder. Note that since it can be reinstalled at any time it is not tracked by git. 
+Examine the contents of `node_modules`. Normally there is no need to touch this folder. Note that since it can be reinstalled at any time it is not tracked by git.
 
 Add to the scripts section of package.json. This will allow us to start the server with `$ npm run start`.
 
@@ -252,7 +252,7 @@ Restart the server with `$ npm run start`.
 
 ## A Review of Design Patterns
 
-Let's review three common [design patterns](https://designpatterns.netlify.app/): 
+Let's review three common [design patterns](https://designpatterns.netlify.app/):
 
 - [Static](https://designpatterns.netlify.app/static/reviews) - uses separate HTML files to create a functioning web site
 - [Fragments](https://designpatterns.netlify.app/fragments/) - a single page application (SPA) that uses link fragments to navigate
@@ -260,11 +260,11 @@ Let's review three common [design patterns](https://designpatterns.netlify.app/)
 
 Compare the location bar in the browser in the three samples. The SPA and fragments samples have an index.html and hash in the URL. The static sample does not. The SPA version changes content not by scrolling to a new location but by changing the content of the page with JavaScript.
 
-All three approaches are valid and common and each has advantages and disadvantages. 
+All three approaches are valid and common and each has advantages and disadvantages.
 
 The difference between the static and SPA approach is often subsumed under the rubriks "web site" vs "web app."
 
-The primary disadvantage of the multi-page static version is that any JavaScript and CSS running on the page is reinitialized and/or reloaded when a new page is loaded. This inability to maintain the state of data across views makes it unsuitable for web applications. The advantages include better search engine optimization (SEO), the ability to share links with others and to use a back button among others. 
+The primary disadvantage of the multi-page static version is that any JavaScript and CSS running on the page is reinitialized and/or reloaded when a new page is loaded. This inability to maintain the state of data across views makes it unsuitable for web applications. The advantages include better search engine optimization (SEO), the ability to share links with others and to use a back button among others.
 
 The primary advantage of the SPA is that it does not reinitialize JavaScript (or CSS for that matter) because there is only one HTML page - just with different views. It can work more like a desktop application (think Gmail or Google Docs for example).
 
@@ -417,7 +417,7 @@ Use case examples:
 
 ```js
 for (let i = 0; i < 5; i++) {
-  console.log(i)
+  console.log(i);
 }
 ```
 
@@ -427,13 +427,13 @@ Note: `i++` is shorthand for `i = i + 1`.
 let num = 1;
 
 for (let i = 0; i < 9; i++) {
-  console.log('i: ', i)
-  console.log('before adding: ', num)
+  console.log("i: ", i);
+  console.log("before adding: ", num);
   num = num + i;
-  console.log('after adding: ', num)
+  console.log("after adding: ", num);
 }
 
-console.log('final num: ', num);
+console.log("final num: ", num);
 ```
 
 Note: the loop exits when `i` is no longer less than 9. The final number is only displayed after the loop exits.
@@ -465,14 +465,14 @@ for (let i = 0; i < tabs.length; i++) {
 }
 ```
 
-Note: we've added a call back function - `makeActive` - with `event.preventDefault()` to prevent the default behavior of the link. 
+Note: we've added a call back function - `makeActive` - with `event.preventDefault()` to prevent the default behavior of the link.
 
 <!-- Since NodeLists have a forEach method we can also do this:
 
 ```js
 tabs.forEach(function (tab) {
   tab.addEventListener("click", makeActive);
-}); 
+});
 ```
 
 
@@ -508,8 +508,9 @@ var tabs = document.querySelectorAll("nav a");
 
 function makeActive(event) {
   event.preventDefault();
-  for (let i = 0; i < tabs.length; i++) { // NEW
-    tabs[i].classList.remove("active"); 
+  for (let i = 0; i < tabs.length; i++) {
+    // NEW
+    tabs[i].classList.remove("active");
   }
   event.target.classList.add("active");
 }
@@ -547,8 +548,8 @@ Create a new script tag above the existing one in `index.html`:
 
 ```html
 <!-- NEW -->
-<script src="js/data-variables.js"></script> 
-<script src="js/scripts.js"></script> 
+<script src="js/data-variables.js"></script>
+<script src="js/scripts.js"></script>
 ```
 
 Examine the `js/data-variables.js` file:
@@ -567,7 +568,7 @@ const delivery =
   "<h1>Delivery</h1> <p>Possimus labore, officia dolore! Eaque ratione saepe, alias harum laboriosam deserunt laudantium blanditiis eum explicabo placeat reiciendis labore iste sint. Consectetur expedita dignissimos, non quos distinctio, eos rerum facilis eligendi.</p>";
 ```
 
-Note the use of HTML tags in the strings. 
+Note the use of HTML tags in the strings.
 
 Create an empty `article` tag with a class of `content` below the navbar in the html:
 
@@ -578,7 +579,7 @@ Create an empty `article` tag with a class of `content` below the navbar in the 
 and a variable that holds a reference to it and initialize our page with one of our variables using `innerHTML`:
 
 ```js
-const contentPara = document.querySelector('.content');
+const contentPara = document.querySelector(".content");
 contentPara.innerHTML = cuisines;
 ```
 
@@ -647,7 +648,7 @@ Change the first link in `index.html` to:
 <li><a href="foocuisinesbar" class="active">cuisines</a></li>
 ```
 
-Again note: we do not use `event.target.href === "cuisines"` because the href is a full URL and not just the work chefs, cuisines etc. Recall what  `console.log(event.target.href)` returns.
+Again note: we do not use `event.target.href === "cuisines"` because the href is a full URL and not just the work chefs, cuisines etc. Recall what `console.log(event.target.href)` returns.
 
 Demo: DOM vs HTML view source. The Elements panel in the inspector shows the current state of the DOM, not the original HTML.
 
@@ -688,9 +689,9 @@ document.addEventListener("click", makeActive);
 
 Event delegation allows us to listen for events on a parent element, determine which child element the event occurred on and change behavior based on the click event's target (the node that was clicked on). It is not strictly necessary in this simple page but it is a good habit and a feature of many JavaScript libraries.
 
-Everything works as previously however clicking on any HTML element now runs our `makeActive` function. 
+Everything works as previously however clicking on any HTML element now runs our `makeActive` function.
 
-Try clicking on the paragraph and the yellow background. 
+Try clicking on the paragraph and the yellow background.
 
 We will use an if statement to ensure that the user has clicked on a link in the navbar before running our code. Note the use of `matches`:
 
@@ -698,7 +699,8 @@ We will use an if statement to ensure that the user has clicked on a link in the
 function makeActive(event) {
   console.log(event.target);
 
-  if (event.target.matches("nav a")) { // NEW
+  if (event.target.matches("nav a")) {
+    // NEW
     event.preventDefault();
     makeInactive();
     event.target.classList.add("active");
@@ -782,23 +784,22 @@ obj["my variable"];
 We can add and delete keys and values from an object:
 
 ```js
-
 obj.d = 3;
 
 obj["my key"] = "my value";
 
 delete obj.a;
 
-obj
+obj;
 ```
 
 Note: the use of the term "object" is a bit problematic in JavaScript because, technically speaking, almost everything in JavaScript is an object. However, when we say "object" we are usually referring to a collection of key-value pairs in curly braces.
 
 We will switch to using objects to store our data using the file `data-object.js` which is already in the `js` directory.
 
-Remove the existing `data-variables.js` script tag and add 
+Remove the existing `data-variables.js` script tag and add
 
-`<script src="js/data-object.js"></script>` 
+`<script src="js/data-object.js"></script>`
 
 to `index.html` - before the existing script tag:
 
@@ -868,7 +869,7 @@ contentPara.innerHTML = data.cuisines;
 
 Our page is still pretty fragile. Hitting refresh still defaults to the cuisines page and the back button doesn't work. Let's fix it by getting the page contents based on the address in the browser's address bar.
 
-We are currently using `event.preventDefault()` and so the browser's location bar never changes. 
+We are currently using `event.preventDefault()` and so the browser's location bar never changes.
 
 Change the href values in the nav to use hashes:
 
@@ -883,7 +884,7 @@ Change the href values in the nav to use hashes:
 </nav>
 ```
 
-Remove `event.preventDefault();` from the script. We no longer need it since hashes do not trigger a page change and refresh. 
+Remove `event.preventDefault();` from the script. We no longer need it since hashes do not trigger a page change and refresh.
 
 Paste `window.location` in the browser console. We can use Location to get the hash.
 
@@ -891,7 +892,7 @@ In the console try: `window.location.hash`. Note that it returns the hash follow
 
 ### String Manipluation
 
-Our page is still navigable but let's expand our use of hashes. 
+Our page is still navigable but let's expand our use of hashes.
 
 We can get the string without the hash from the URL using [substring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring):
 
@@ -920,7 +921,7 @@ function makeActive(event) {
 }
 ```
 
-Note the use of `data[...]` instead of `data.type`. We use square brackets because `currentHash` is a string. 
+Note the use of `data[...]` instead of `data.type`. We use square brackets because `currentHash` is a string.
 
 For example:
 
@@ -931,15 +932,15 @@ var myObject = {
   cuisines: "testing",
 };
 
-myObject[text]
-myObject.text // doesn't work
+myObject[text];
+myObject.text; // doesn't work
 ```
 
 As you might imagine, strings are a fundamental data type for working with data on the web. We will use them frequently and your growing knowledge of [string methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) will be important.
 
 ### Problems with the Current Approach
 
-1. in certain circumstances we have to click on the tab twice to get the appropriate content 
+1. in certain circumstances we have to click on the tab twice to get the appropriate content
 2. the active / inactive class switching works but not at first or when we refresh the page
 
 We can see the first issue by logging the variable currentHash to the console:
@@ -955,12 +956,12 @@ function makeActive(event) {
 }
 ```
 
-This could be a tricky bug to resolve.  
+This could be a tricky bug to resolve.
 
 We can set the hash to a default value when the page loads. Try the following in the browser's console:
 
 ```js
-window.location.hash = "foobar"
+window.location.hash = "foobar";
 ```
 
 We will use the [hashchange](https://developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event) event to set the content according to the hash. `hashchange` fires when the hash in the browser's location bar changes.
@@ -979,7 +980,7 @@ function makeActive(event) {
 }
 
 function makeInactive() {
-    for (let i = 0; i < tabs.length; i++) {
+  for (let i = 0; i < tabs.length; i++) {
     tabs[i].classList.remove("active");
   }
 }
@@ -1028,7 +1029,7 @@ window.addEventListener("hashchange", setContentAccordingToHash);
 initializePage(); // NEW
 ```
 
-Refreshing the page still resets the content to cuisines. 
+Refreshing the page still resets the content to cuisines.
 
 Now that we are using a hash to set the content we can also use it when the page loads to derive a solution for the refresh button:
 
@@ -1037,7 +1038,7 @@ function initializePage() {
   // set a default if there is no hash
   if (!window.location.hash) {
     window.location.hash = "cuisines";
-    document.querySelector('nav a').classList.add("active");
+    document.querySelector("nav a").classList.add("active");
   } else {
     // if there is a hash set the active tab according to the hash
     document
@@ -1050,11 +1051,11 @@ function initializePage() {
 
 Refreshing the page now maintains the active tab and the content.
 
-Note the use of [attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) and concatenation. 
+Note the use of [attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) and concatenation.
 
 Attribute selectors are very handy in CSS and JavaScript. They allow us to select elements based on the presence of an attribute or the value of an attribute. Here is an example of an attribute selector in CSS:
 
-```css 
+```css
 [class="content"] {
   color: red;
 }
@@ -1086,14 +1087,13 @@ Here is a comparison of old school text concatination and template strings:
 const name = "Yorik";
 const age = 2;
 
-const oldSchool =
-  "My name is " + name + " and I am " + age * 7 + " years old.";
+const oldSchool = "My name is " + name + " and I am " + age * 7 + " years old.";
 
-oldschool
+oldschool;
 
 const newSchool = `My name is ${name} and I am ${age * 7} years old.`;
 
-newschool
+newschool;
 ```
 
 Here is another example showing how we often create HTML using template strings:
@@ -1126,7 +1126,7 @@ We will change it to:
 .querySelector(`[href="${window.location.hash}"]`)
 ```
 
-We can use the hash change to determine *both* the active tab and the content being displayed.
+We can use the hash change to determine _both_ the active tab and the content being displayed.
 
 This also makes it easier to reset both the active state and content when the browser's forward and back arrows are used.
 
@@ -1168,7 +1168,7 @@ function makeActive(currentHash) {
 
 // remove the class active from all tabs
 function makeInactive() {
-    for (let i = 0; i < tabs.length; i++) {
+  for (let i = 0; i < tabs.length; i++) {
     tabs[i].classList.remove("active");
   }
 }
@@ -1245,7 +1245,14 @@ const data = [
 ];
 ```
 
-An array is commonly used in conjunction with loops.
+This data structure is an Array containing multiple objects which contain multiple entries. Like Object, Arrays are a common data structure in JavaScript. We look look at Arrays in depth in a later lesson but they have some familiar properties such as `data.length`:
+
+```js
+let temp = ["red", "green", "blue"];
+temp.red; // will not work with Arrays
+temp[0]; // there is only one way to access Array vales
+temp.push("purple"); // not temp.color3 = "purple" examine the Array prototype
+```
 
 Change the link in the HTML to reference `data-array.js`:
 
@@ -1327,8 +1334,8 @@ function setContentAccordingToHash() {
   for (var i = 0; i < data.length; i++) {
     if (data[i].section === currentHash) {
       contentPara.innerHTML = `
-      <h2>${data[i].section}</h2> 
-      <p>${data[i].story}</p>
+        <h2>${data[i].section}</h2> 
+        <p>${data[i].story}</p>
       `;
       makeActive(currentHash);
     }
@@ -1345,7 +1352,7 @@ document.addEventListener("DOMContentLoaded", initializePage);
 
 Here is the final script:
 
-```js 
+```js
 // declare variables
 var tabs = document.querySelectorAll("nav a");
 var contentPara = document.querySelector(".content");
